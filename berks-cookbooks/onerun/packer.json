@@ -20,7 +20,7 @@
     {
       "type": "amazon-ebs",
       "region": "us-west-2",
-      "ami_name": "k8s-debian-base.{{user `debian_ver`}}.{{user `k8s_ver`}}.{{user `docker_ver`}}.{{timestamp}}",
+      "ami_name": "k8s_debian_base-{{user `debian_ver`}}-{{user `k8s_ver`}}-{{user `docker_ver`}}-{{timestamp}}",
       "source_ami": "ami-8f7bd9ef",
       "instance_type": "t2.large",
       "ssh_username": "admin",

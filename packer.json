@@ -24,8 +24,6 @@
       "source_ami": "ami-8f7bd9ef",
       "instance_type": "t2.large",
       "ssh_username": "admin",
-      "ssh_keypair_name": "packer-test",
-      "ssh_private_key_file": "/Users/pmdev/Downloads/packer-test.pem",
       "ami_regions": [
         "us-east-1",
         "us-east-2",
