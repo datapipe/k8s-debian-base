@@ -1,0 +1,41 @@
+{
+  "variables": {
+    "k8s_ver": "1.4.5",
+    "debian_ver": "7.2",
+    "docker_ver": "1.11.2"
+  },
+  "provisioners": [
+    {
+      "type": "chef-solo",
+      "cookbook_paths": [
+        "berks-cookbooks"
+      ],
+      "staging_directory": "/opt/chef/cookbooks",
+      "config_template": "with_zero.rb",
+      "install_command": "wget -q -O- https://www.chef.io/chef/install.sh | {{if .Sudo}}sudo{{end}} bash",
+      "execute_command": "sudo mkdir -p /opt/chef/cookbooks/cookbooks-0 && cd /opt/chef/cookbooks/cookbooks-0 && sudo chef-client -z -o recipe[onerun::default] -c ../solo.rb"
+    }
+  ],
+  "builders": [
+    {
+      "type": "amazon-ebs",
+      "region": "us-west-2",
+      "ami_name": "k8s-debian-base.{{user `debian_ver`}}.{{user `k8s_ver`}}.{{user `docker_ver`}}.{{timestamp}}",
+      "source_ami": "ami-8f7bd9ef",
+      "instance_type": "t2.large",
+      "ssh_username": "admin",
+      "ssh_keypair_name": "packer-test",
+      "ssh_private_key_file": "/Users/pmdev/Downloads/packer-test.pem",
+      "ami_regions": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-1",
+        "ap-northeast-1",
+        "ap-northeast-1",
+        "eu-central-1",
+        "eu-west-1"
+      ],
+      "ami_description": "AMI Build for kube-deploy via debian."
+    }
+  ]
+}

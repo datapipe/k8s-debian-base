@@ -1,0 +1,12 @@
+GRUB_CMDLINE_LINUX="init=/bin/systemd"
+GRUB_TIMEOUT=0
+GRUB_SERIAL_COMMAND="serial"
+GRUB_DISABLE_RECOVERY=True
+GRUB_GFXMODE="auto"
+GRUB_HIDDEN_TIMEOUT_QUIET=True
+GRUB_HIDDEN_TIMEOUT=0
+TERMINAL="console"
+GRUB_DEFAULT=0
+#GRUB_CMDLINE_LINUX_DEFAULT="console=ttyS0 console=hvc0"
+# kubernetes image changes
+GRUB_CMDLINE_LINUX_DEFAULT="cgroup_enable=memory oops=panic panic=10 console=ttyS0"
