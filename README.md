@@ -1,6 +1,6 @@
 # k8s-debian-base
 
-This is a sample cookbook generated the yeoman bakery generator.
+This is a set of chef recipes, cookbooks and scripts designed to build an Amazon Machine Image. It was generated via  the [yeoman bakery generator](https://github.com/datapipe/k8s-debian-base).
 
 # setup
 
